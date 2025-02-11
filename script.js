@@ -115,10 +115,17 @@ function resetGame() {
   // Reset the points
   player1_points = 0;
   player2_points = 0;
+  // Call update scoreboard to reflect the change
+  updateScoreboard();
+
+  document.querySelectorAll(".square").forEach(square => {
+    square.textContent = ""; // Clear marks
+    square.removeAttribute("data-player"); // Remove player-specific styles
+  });
+
 
   // Reset to X
   currentPlayer = "X";
-
   // Build the board again
   buildBoard();
 }
